@@ -1,0 +1,94 @@
+<div class='wrap'>
+  <h2>CPROTEXT options</h2>
+  <form id='cptx_optionform' action='' method='post'>
+
+    <fieldset class='cptxaccount'>
+      <legend>CPROTEXT.COM Account</legend>
+      <p>
+        <button id='fontlist' class='button' type='submit' name='mysubmit' value='cptx_fupd'>
+          Import your account settings
+        </button>
+      </p>
+
+      <p>
+        <label>
+          Choose your default font among the ones registered in your CPROTEXT account :<br/>
+          <span style='padding: 0 100px'>
+            <select id='cptx_fontsel' name='cptx_fontsel'>
+              __FONTSEL_OPTIONS__
+            </select>
+          </span>
+        </label>
+      </p>
+
+      <!--[if lte IE 8]>
+      <div>
+        [With Internet Explorer, font upload support is available only for versions 9+: use your <a href='https://www.cprotext.com/en/account/'>CPROTEXT.COM account</a>]
+      </div>
+      <![endif]-->
+<div><!--[if gt IE 8]><div style='color:#F1F1F1'>--></div>
+      <div>Or upload a new font :
+        <input id='fontFile' type='file' name='fontFile'/>
+        <div class='progress'>
+          <div class='bar'></div>
+          <div class='percent'></div>
+        </div>
+        <div class='status'></div>
+      </div>
+      <!--<![endif]-->
+      <!--[if lte IE 8]></div><![endif]-->
+    </fieldset>
+
+    <p>
+      <label>
+        <input type='checkbox' value='1' name='cptx_ie8'/>
+        Enable Internet Explorer 8 support by default
+      </label>
+    </p>
+
+    <p>
+      Display a CPROTEXT notice before any protected content as:
+    </p>
+    <div style='padding: 0 100px'>
+      <p>
+        <label>
+          <input type='radio' name='cptx_notice' value='0'/>
+          simple text
+        </label>
+        <span style='border: solid thin black;margin:0 10px;padding:5px 10px;font-size: 0.8em;'>
+          <img src='__PLUGINS_URL__/wp-cprotext/images/icon16.png' 
+              alt='' 
+              title='Copyright protection for online texts ( http://www.cprotext.com )' 
+              style='vertical-align:middle'/> 
+          <span style='vertical-align:middle'>
+            Copyrighted text protected by CPROTEXT
+          </span>
+        </span>
+      </p>
+      <p>
+        <label>
+          <input type='radio' name='cptx_notice' value='1'/>
+          text with link
+        </label>
+        <span style='border: solid thin black;margin:0 10px;padding:5px 10px;font-size: 0.8em'>
+          <img src='__PLUGINS_URL__/wp-cprotext/images/icon16.png' 
+              alt='' 
+              title='Copyright protection for online texts ( http://www.cprotext.com )' 
+              style='vertical-align:middle'/> 
+          <a href='http://www.cprotext.com' title='CPROTEXT web site'>
+            <span style='vertical-align:middle'>
+              Copyrighted text protected by CPROTEXT
+            </span>
+          </a>
+        </span>
+      </p>
+    </div>
+    <p class='submit'>
+      <button id='cptxoptionsave' class='button button-primary' type='submit' name='mysubmit' value='cptx_fupd' disabled='disabled'>
+        Save Changes
+      </button>
+    </p>
+    <input type=hidden id='cptx_fontupd' name='cptx_fontupd' value='0'/>
+    <input type=hidden id='cptx_fonts' name='cptx_fonts'/>
+  </form>
+</div>
