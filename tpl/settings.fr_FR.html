@@ -1,0 +1,97 @@
+<div class='wrap'>
+  <h2>Préférences CPROTEXT</h2>
+  <form id='cptx_optionform' action='' method='post'>
+    
+    <fieldset class='cptxaccount'>
+      <legend>Compte CPROTEXT.COM</legend>
+      <p>
+        <button id='fontlist' class='button' type='submit' name='mysubmit' value='cptx_fupd'>
+          Importer les préférences de votre compte
+        </button>
+      </p>
+
+      <p>
+        <label>
+          Choisissez votre police de caractère par défaut parmi celles listées dans votre compte CPROTEXT :<br/>
+          <span style='padding: 0 100px'>
+            <select id='cptx_fontsel' name='cptx_fontsel'>
+              __FONTSEL_OPTIONS__
+            </select>
+          </span>
+        </label>
+      </p>
+
+      <!--[if lte IE 8]>
+      <div>
+        [Pour Internet Explorer, l'ajout de polices de caractères n'est disponible que pour les versions 9+: utilisez votre
+      <a href='https://www.cprotext.com/fr/compte/'>compte CPROTEXT.COM</a>]
+      </div>
+      <![endif]-->
+<div><!--[if gt IE 8]><div style='color:#F1F1F1'>--></div>
+      <div>Ou ajoutez une nouvelle police:
+        <input id='fontFile' type='file' name='fontFile'/>
+        <div class='progress'>
+          <div class='bar'></div>
+          <div class='percent'></div>
+        </div>
+        <div class='status'></div>
+      </div>
+      <!--<![endif]-->
+      <!--[if lte IE 8]></div><![endif]-->
+    </fieldset>
+
+    <p>
+      <label>
+        <input type='checkbox' value='1' name='cptx_ie8'/>
+        Activer le support d'Internet Explorer 8 par défaut
+      </label>
+    </p>
+
+    <p>
+      Afficher une entête CPROTEXT avant chaque contenu protégé sous forme de:
+    </p>
+    <div style='padding: 0 100px'>
+      <p>
+        <label>
+          <input type='radio' name='cptx_notice' value='0'/>
+          texte simple
+        </label>
+        <span style='border: solid thin black;margin:0 10px;padding:5px 10px;font-size: 0.8em;'>
+          <img src='__PLUGINS_URL__/wp-cprotext/images/icon16.png' 
+              alt='' 
+              title='Protection de texte en ligne soumis à copyright ( http://www.cprotext.com )' 
+              style='vertical-align:middle'/> 
+          <span style='vertical-align:middle'>
+            Texte soumis à copyright protégé par CPROTEXT
+          </span>
+        </span>
+      </p>
+      <p>
+        <label>
+          <input type='radio' name='cptx_notice' value='1'/>
+          texte avec hyperlien
+        </label>
+        <span style='border: solid thin black;margin:0 10px;padding:5px 10px;font-size: 0.8em'>
+          <img src='__PLUGINS_URL__/wp-cprotext/images/icon16.png' 
+              alt='' 
+              title='Protection de texte en ligne soumis à copyright ( http://www.cprotext.com )' 
+              style='vertical-align:middle'/> 
+          <a href='http://www.cprotext.com' title='CPROTEXT web site'>
+            <span style='vertical-align:middle'>
+              Texte soumis à copyright protégé par CPROTEXT
+            </span>
+          </a>
+        </span>
+      </p>
+    </div>
+
+
+    <p class='submit'>
+      <button id='cptxoptionsave' class='button button-primary' type='submit' name='mysubmit' value='cptx_fupd' disabled='disabled'>
+        Enregistrer les modifications
+      </button>
+    </p>
+    <input type=hidden id='cptx_fontupd' name='cptx_fontupd' value='0'/>
+    <input type=hidden id='cptx_fonts' name='cptx_fonts'/>
+  </form>
+</div>

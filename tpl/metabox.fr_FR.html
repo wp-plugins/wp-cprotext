@@ -1,0 +1,44 @@
+<noscript>
+  <p style="color:red;">
+    Le greffon CPROTEXT nécessite la prise en charge de javascript par votre navigateur. Celle-ci ne semble pas être activée.
+  </p>
+</noscript>
+
+<label>
+  <input id="cptx_check" name="cptx_check" type="checkbox"/>&nbsp;Activer CPROTEXT
+</label>
+
+<p>
+  <label>
+    <input id="fake_ie8" name="cptx_ie8" type="hidden" value="off"/>
+    <input id='cptx_ie8' name="cptx_ie8" type="checkbox" value="on"/>&nbsp;Prise en charge d'Internet Explorer 8
+  </label>
+</p>
+
+<p>
+  <label>Police de caractère du texte:
+    <select id='cptx_fontsel' name='cptx_fontsel'>
+      __FONTSEL_OPTIONS__
+    </select>
+  </label>
+</p>
+<div>
+  Pour que les moteurs de recherche référencent votre __POST_TYPE__,
+  vous pouvez ajouter des informations utiles qui seront accessibles à quiconque regardera le code HTML,
+  mais  resteront invisibles sur la page affichée.<br/>
+  <label>Texte de substitution:<br/>
+    <textarea style='width: 100%' id='cptx_plh' name='cptx_plh'>__PLH__</textarea>
+  </label>
+  <label>Mots-clés (séparés par une virgule):<br/>
+    <textarea style='width: 100%' id='cptx_kw' name='cptx_kw'>__KW__</textarea>
+  </label>
+</div>
+<input type="hidden" id='cptxed' name='cptxed' value='__CPTXED__'/>
+<input type="hidden" id='cptx_contentVer' name='cptx_contentVer'/>
+<input type="hidden" id='cptx_contentCSS' name='cptx_contentCSS'/>
+<input type="hidden" id='cptx_contentHTML' name='cptx_contentHTML'/>
+<input type="hidden" id='cptx_contentEOTE' name='cptx_contentEOTE'/>
+<input type="hidden" id='cptx_contentEOTS' name='cptx_contentEOTS'/>
+<input type="hidden" id='cptx_contentId' name='cptx_contentId' value='__TEXTID__'/>
+<input type="hidden" id='cptx_statusChange' name='cptx_statusChange' value='__STATUS__'/>
+
