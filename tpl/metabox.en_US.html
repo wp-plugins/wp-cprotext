@@ -1,0 +1,44 @@
+<noscript>
+  <p style="color:red;">
+    CPROTEXT plugin requires javascript, which does not seem to be activated for now.
+  </p>
+</noscript>
+
+<label>
+  <input id="cptx_check" name="cptx_check" type="checkbox"/>&nbsp;Enable CPROTEXT
+</label>
+
+<p>
+  <label>
+    <input id="fake_ie8" name="cptx_ie8" type="hidden" value="off"/>
+    <input id='cptx_ie8' name="cptx_ie8" type="checkbox" value="on"/>&nbsp;Internet Explorer 8 support
+  </label>
+</p>
+
+<p>
+  <label>Text Font:
+    <select id='cptx_fontsel' name='cptx_fontsel'>
+      __FONTSEL_OPTIONS__
+    </select>
+  </label>
+</p>
+<div>
+  In order for search engines to reference your __POST_TYPE__,
+  you can add relevant information that won't be visible in the rendered page,
+  but available to any one looking at the HTML code<br/>
+  <label>Placeholder:<br/>
+    <textarea style='width: 100%' id='cptx_plh' name='cptx_plh'>__PLH__</textarea>
+  </label>
+  <label>Keywords (comma separated):<br/>
+    <textarea style='width: 100%' id='cptx_kw' name='cptx_kw'>__KW__</textarea>
+  </label>
+</div>
+<input type="hidden" id='cptxed' name='cptxed' value='__CPTXED__'/>
+<input type="hidden" id='cptx_contentVer' name='cptx_contentVer'/>
+<input type="hidden" id='cptx_contentCSS' name='cptx_contentCSS'/>
+<input type="hidden" id='cptx_contentHTML' name='cptx_contentHTML'/>
+<input type="hidden" id='cptx_contentEOTE' name='cptx_contentEOTE'/>
+<input type="hidden" id='cptx_contentEOTS' name='cptx_contentEOTS'/>
+<input type="hidden" id='cptx_contentId' name='cptx_contentId' value='__TEXTID__'/>
+<input type="hidden" id='cptx_statusChange' name='cptx_statusChange' value='__STATUS__'/>
+
