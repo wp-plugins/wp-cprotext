@@ -9,8 +9,7 @@ License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 CPROTEXT protects your texts from unauthorized and fraudulent copy. The protected texts are
-immune to in-browser copy/paste and HTML code parsing. Neither browser users nor
-web crawlers will be able to digitally duplicate your texts anymore.
+immune to in-browser copy/paste and HTML code parsing.
 
 == Description ==
 
