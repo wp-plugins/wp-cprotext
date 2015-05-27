@@ -1033,6 +1033,7 @@
             initialPlh=$("#cptx_plh").val();
             initialKw=$("#cptx_kw").val();
           }else{
+            $("#cptx_ie8").attr("disabled","disabled");
             $("#cptx_fontsel, #cptx_fontsel option").
             attr("disabled","disabled");
             $("#cptx_kw").attr("disabled","disabled");

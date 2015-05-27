@@ -43,23 +43,23 @@
     <p>
       <label>
         <input type='checkbox' value='1' name='cptx_ie8'/>
-        Activer le support d'Internet Explorer 8 par défaut
+        Activer la prise en charge d'Internet Explorer 8 par défaut (cf. <a href="https://www.cprotext.com/fr/faq.html#faq12">F.A.Q.</a>)
       </label>
     </p>
 
     <p>
-      Afficher une entête CPROTEXT avant chaque contenu protégé sous forme de:
+      Indiquer la protection du contenu par CPROTEXT:
     </p>
     <div style='padding: 0 100px'>
       <p>
         <label>
           <input type='radio' name='cptx_notice' value='0'/>
-          texte simple
+          texte simple avant votre contenu
         </label>
         <span style='border: solid thin black;margin:0 10px;padding:5px 10px;font-size: 0.8em;'>
           <img src='__PLUGINS_URL__/wp-cprotext/images/icon16.png' 
-              alt='' 
-              title='Protection de texte en ligne soumis à copyright ( http://www.cprotext.com )' 
+              alt='https://www.cprotext.com' 
+              title='Protection de texte en ligne soumis à copyright ( https://www.cprotext.com )' 
               style='vertical-align:middle'/> 
           <span style='vertical-align:middle'>
             Texte soumis à copyright protégé par CPROTEXT
@@ -69,23 +69,33 @@
       <p>
         <label>
           <input type='radio' name='cptx_notice' value='1'/>
-          texte avec hyperlien
+          texte avec hyperlien avant votre contenu
         </label>
         <span style='border: solid thin black;margin:0 10px;padding:5px 10px;font-size: 0.8em'>
           <img src='__PLUGINS_URL__/wp-cprotext/images/icon16.png' 
-              alt='' 
-              title='Protection de texte en ligne soumis à copyright ( http://www.cprotext.com )' 
+              alt='https://www.cprotext.com' 
+              title='Protection de texte en ligne soumis à copyright ( https://www.cprotext.com )' 
               style='vertical-align:middle'/> 
-          <a href='http://www.cprotext.com' title='CPROTEXT web site'>
+          <a href='https://www.cprotext.com' title='CPROTEXT web site'>
             <span style='vertical-align:middle'>
               Texte soumis à copyright protégé par CPROTEXT
             </span>
           </a>
         </span>
       </p>
+      <p>
+        <label>
+          <input type='radio' name='cptx_notice' value='2'/>
+          notification invisible uniquement apparente aux moteurs de recherche
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type='radio' name='cptx_notice' value='3'/>
+          non merci !
+        </label>
+      </p>
     </div>
-
-
     <p class='submit'>
       <button id='cptxoptionsave' class='button button-primary' type='submit' name='mysubmit' value='cptx_fupd' disabled='disabled'>
         Enregistrer les modifications

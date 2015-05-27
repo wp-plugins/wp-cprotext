@@ -169,6 +169,9 @@ function cptx_APIProxy(){
       $content .= "--".MULTIPART_BOUNDARY."--\r\n";
     }else{
       $content=http_build_query($_POST);
+      // http_build_query add slashes in front of various characters before 
+      // building the query. Those need to be removed
+      $content=str_replace(array("%5C%5C","%5C","\\"),array("\\","","%5C"),$content);
     }
 
     $params["http"]["content"]=$content;

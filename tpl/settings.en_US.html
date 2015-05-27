@@ -42,23 +42,23 @@
     <p>
       <label>
         <input type='checkbox' value='1' name='cptx_ie8'/>
-        Enable Internet Explorer 8 support by default
+        Enable Internet Explorer 8 support by default (cf. <a href="https://www.cprotext.com/en/faq.html#faq12">F.A.Q.</a>)
       </label>
     </p>
 
     <p>
-      Display a CPROTEXT notice before any protected content as:
+      Notify the CPROTEXT content protection:
     </p>
     <div style='padding: 0 100px'>
       <p>
         <label>
           <input type='radio' name='cptx_notice' value='0'/>
-          simple text
+          simple text before your post
         </label>
         <span style='border: solid thin black;margin:0 10px;padding:5px 10px;font-size: 0.8em;'>
           <img src='__PLUGINS_URL__/wp-cprotext/images/icon16.png' 
-              alt='' 
-              title='Copyright protection for online texts ( http://www.cprotext.com )' 
+              alt='https://www.cprotext.com' 
+              title='Copyright protection for online texts ( https://www.cprotext.com )' 
               style='vertical-align:middle'/> 
           <span style='vertical-align:middle'>
             Copyrighted text protected by CPROTEXT
@@ -68,19 +68,31 @@
       <p>
         <label>
           <input type='radio' name='cptx_notice' value='1'/>
-          text with link
+          text with link before your post
         </label>
         <span style='border: solid thin black;margin:0 10px;padding:5px 10px;font-size: 0.8em'>
           <img src='__PLUGINS_URL__/wp-cprotext/images/icon16.png' 
-              alt='' 
-              title='Copyright protection for online texts ( http://www.cprotext.com )' 
+              alt='https://www.cprotext.com' 
+              title='Copyright protection for online texts ( https://www.cprotext.com )' 
               style='vertical-align:middle'/> 
-          <a href='http://www.cprotext.com' title='CPROTEXT web site'>
+          <a href='https://www.cprotext.com' title='CPROTEXT web site'>
             <span style='vertical-align:middle'>
               Copyrighted text protected by CPROTEXT
             </span>
           </a>
         </span>
+      </p>
+      <p>
+        <label>
+          <input type='radio' name='cptx_notice' value='2'/>
+          invisible notification only available to search engines
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type='radio' name='cptx_notice' value='3'/>
+          no thanks !
+        </label>
       </p>
     </div>
     <p class='submit'>

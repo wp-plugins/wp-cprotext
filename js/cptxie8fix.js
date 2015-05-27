@@ -4,7 +4,7 @@
       var h=document.getElementsByTagName("head")[0];
       var s=document.createElement("style");
       s.type="text/css";
-      s.styleSheet.cssText=":before,:after{content:none !important";
+      s.styleSheet.cssText=":before,:after{content:none !important;}";
       h.appendChild(s);
       setTimeout(function(){
           h.removeChild(s);},

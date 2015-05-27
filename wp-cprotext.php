@@ -1,19 +1,19 @@
 <?php
 /*
  * Plugin Name: wp-cprotext
- * Plugin URI: http://www.cprotext.com/en/tools.html
- * Description: Integration of the online texts copy protection service proposed by cprotext.com
+ * Plugin URI: https://www.cprotext.com/en/tools.html
+ * Description: Integration of the CPROTEXT.COM online service for copy protection of texts published on the web
  * Text Domain: wp-cprotext
  * Domain path: /lang/
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: ASKADICE
- * Author: http://www.cprotext.com
+ * Author: https://www.cprotext.com
  * License: GPLv2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define("CPTX_PLUGIN_VERSION","1.1.0");
+define("CPTX_PLUGIN_VERSION","1.2.0");
 
 define("CPTX_DB_VERSION","1");
 
@@ -63,6 +63,8 @@ require_once(__DIR__."/backends/font.php");
  *      cptx_notice: set protection notification style
  *                   values: 0 => simple text notification
  *                           1 => linked notification
+ *                           2 => text appended to placeholder
+ *                           3 => none
  *
  *      cptx_fonts: list of available fonts in user CPROTEXT account
  *
@@ -80,16 +82,10 @@ function cptx_updateCheck(){
 
   $currentPluginVersion=get_option('cptx_version');
 
-  if($currentPluginVersion == CPTX_PLUGIN_VERSION){
+  if($currentPluginVersion === CPTX_PLUGIN_VERSION){
     return;
   }
 
-  if($currentPluginVersion===false){
-    update_option("cptx_notice",0);
-    update_option("cptx_fonts","");
-    update_option("cptx_font","");
-    update_option("cptx_ie8",1);
-  }
   update_option("cptx_version",CPTX_PLUGIN_VERSION);
 
   $current_DBVersion=get_option('cptx_db_version'); 
@@ -129,18 +125,28 @@ function cptx_updateCheck(){
       }
       if($v == $current_DBVersion ){
         // successful rollback
-        update_option("cptx_popup",2);
+        update_option("cptx_popup",3);
       }else{
         // failed rollback
-        update_option("cptx_popup",3);
+        update_option("cptx_popup",4);
       }
       return false;
     }
     update_option("cptx_db_version",CPTX_DB_VERSION);
   }
 
-  if(file_exists(__DIR__."/tpl/popup_".CPTX_PLUGIN_VERSION.".en_US.html")){
+  if($currentPluginVersion===false){
+    update_option("cptx_notice",0);
+    update_option("cptx_fonts","");
+    update_option("cptx_font","");
+    update_option("cptx_ie8",1);
     update_option("cptx_popup",1);
+  }else{
+    if(file_exists(__DIR__."/tpl/release_".CPTX_PLUGIN_VERSION.".en_US.html")){
+      update_option("cptx_popup",2);
+    }else{
+      update_option("cptx_popup",0);
+    }
   }
   return true;
 }
@@ -176,17 +182,20 @@ function cptx_getTemplate($tpl){
  */
 function cptx_popup() {
   switch(get_option('cptx_popup')){
-  case 0:
-    return;
   case 1:
-    $content=cptx_getTemplate("popup_".CPTX_PLUGIN_VERSION);
+    $content=cptx_getTemplate("firstinstall");
     break;
   case 2:
-    $content=cptx_getTemplate("rollback");
+    $content=cptx_getTemplate("release_".CPTX_PLUGIN_VERSION);
     break;
   case 3:
+    $content=cptx_getTemplate("rollback");
+    break;
+  case 4:
     $content=cptx_getTemplate("fatal");
     break;
+  default:
+    return;
   };
 
   echo "<div id='cptxPopUp' style='display:none'>";
@@ -246,7 +255,7 @@ function cptx_options(){
 
   $cptx_notice=(int)get_option("cptx_notice");
   $posted_cptx_notice=filter_input(INPUT_POST,"cptx_notice",
-    FILTER_VALIDATE_INT,array("options"=>array("min_range"=>0,"max_range"=>1)));
+    FILTER_VALIDATE_INT,array("options"=>array("min_range"=>0,"max_range"=>3)));
 
   if(is_int($posted_cptx_notice) && $posted_cptx_notice!==$cptx_notice){
     update_option("cptx_notice",$posted_cptx_notice);
@@ -393,13 +402,13 @@ function cptx_adminInserts($page){
       "CPROTEXTED"=>CPTX_STATUS_CPROTEXTED,
       "NOT_CPROTEXTED"=>CPTX_STATUS_NOT_CPROTEXTED,
       "UPDATE_TITLE"=>CPTX_STATUS_UPDATE_TITLE,
+      "UPDATE_CONTENT"=>CPTX_STATUS_UPDATE_CONTENT,
+      "WPUPDATES"=>CPTX_STATUS_WPUPDATES,
       "IE8_CHANGED"=>CPTX_STATUS_IE8_CHANGED,
       "IE8_ENABLED"=>CPTX_STATUS_IE8_ENABLED,
       "UPDATE_FONT"=>CPTX_STATUS_UPDATE_FONT,
       "UPDATE_PLH"=>CPTX_STATUS_UPDATE_PLH,
       "UPDATE_KW"=>CPTX_STATUS_UPDATE_KW,
-      "UPDATE_CONTENT"=>CPTX_STATUS_UPDATE_CONTENT,
-      "WPUPDATES"=>CPTX_STATUS_WPUPDATES,
       "UPDATES"=>CPTX_STATUS_UPDATES,
       "PROCESSING"=>CPTX_STATUS_PROCESSING
     ),
@@ -853,9 +862,10 @@ function cptx_upsertdb($postId,$parentId,$insert=false){
       "version"=>$posted_contentVer,
       "font"=>$posted_fontsel,
       "plh"=>$posted_plh,
-      "css"=>preg_replace("/cprotext[0-9a-f]{8}/","wpcxX",$posted_contentCSS),
+      "css"=>preg_replace("/cprotext[0-9a-f]{8}/","wpcxX",
+      str_replace('\\','\\\\',$posted_contentCSS)),
       "html"=>preg_replace("/cprotext[0-9a-f]{8}-/","wpcxX-",
-      $posted_contentHTML),
+      str_replace('\\','\\\\',$posted_contentHTML)),
       "ie8enabled"=>$posted_ie8,
       "eote"=>$contentEOTE,
       "eots"=>$contentEOTS,
@@ -869,9 +879,10 @@ function cptx_upsertdb($postId,$parentId,$insert=false){
         "version"=>$posted_contentVer,
         "font"=>$posted_fontsel,
         "plh"=>$posted_plh,
-        "css"=>preg_replace("/cprotext[0-9a-f]{8}/","wpcxX",$posted_contentCSS),
+        "css"=>preg_replace("/cprotext[0-9a-f]{8}/","wpcxX",
+        str_replace('\\','\\\\',$posted_contentCSS)),
         "html"=>preg_replace("/cprotext[0-9a-f]{8}-/","wpcxX-",
-        $posted_contentHTML),
+        str_replace('\\','\\\\',$posted_contentHTML)),
         "ie8enabled"=>$posted_ie8,
         "eote"=>$contentEOTE,
         "eots"=>$contentEOTS,
@@ -1511,7 +1522,10 @@ function cptx_savePost($postId,$post){
                 if(!cptx_setIE8Support($postId,false))
                   break;
               }
-            }
+            }else{
+              if(!cptx_transferPost($prevProtectedRevId,$postId))
+                break;
+	    }
 
             if(!cptx_updateKeywords($postId))
               break;
@@ -2101,19 +2115,33 @@ function cptx_content($content){
   if($postid===-1)
     return $content;
 
-  $notice="<span style='vertical-align:middle'>".__("Copyrighted text protected by CPROTEXT",CPTX_I18N_DOMAIN)."</span>";
-  if(get_option('cptx_notice')==1)
-    $notice="<a href='http://www.cprotext.com' title='".__("CPROTEXT web site",CPTX_I18N_DOMAIN)."'>$notice</a>";
+  $result=str_replace("cxX-","cx$postid-",stripslashes($post->cptx_html));
 
-  $cptx_notice="<div style='font-size: 0.8em;' ";
-  $cptx_notice.="title='".__("Copyright protection for online texts",CPTX_I18N_DOMAIN)." ( http://www.cprotext.com )'>";
-  $cptx_notice.="<img src='".plugins_url('wp-cprotext/images/icon16.png')."' ";
-  $cptx_notice.="alt='' ";
-  $cptx_notice.="style='vertical-align:middle'/> ";
-  $cptx_notice.=$notice;
-  $cptx_notice.="</div>";
-
-  $result=$cptx_notice.str_replace("cxX-","cx$postid-",stripslashes($post->cptx_html));
+  $cptx_notice=(int)get_option('cptx_notice');
+  $noticeText=__('Copyrighted text protected by CPROTEXT',CPTX_I18N_DOMAIN);
+  $notice="<span style='vertical-align:middle'>".$noticeText."</span>";
+  switch($cptx_notice){
+  case 3:
+    break;
+  case 2:
+    $result.='<span class="wpcx'.$postid.'-c">[ ';
+    $result.='Copyrighted text protected by ';
+    $result.='<a href="https://www.cprotext.com">CPROTEXT</a>';
+    $result.=' ]</span>';
+    break;
+  case 1: 
+    $notice="<a href='https://www.cprotext.com' title='".__("CPROTEXT web site",CPTX_I18N_DOMAIN)."'>$notice</a>";
+  case 0:
+    $cptx_notice="<div style='font-size: 0.8em;' ";
+    $cptx_notice.="title='".__("Copyright protection for online texts",CPTX_I18N_DOMAIN)." ( https://www.cprotext.com )'>";
+    $cptx_notice.="<img src='".plugins_url('wp-cprotext/images/icon16.png')."' ";
+    $cptx_notice.="alt='https://www.cprotext.com' ";
+    $cptx_notice.="style='vertical-align:middle'/> ";
+    $cptx_notice.=$notice;
+    $cptx_notice.="</div>";
+    $result=$cptx_notice.$result;
+    break;
+  }
 
   return $result;
 }
@@ -2131,6 +2159,7 @@ function cptx_pageInserts(){
   $keywords="";
   $postid=0;
   if (have_posts()){
+    $enableie8=false;
     while (have_posts()){
       the_post();
       if(!empty($post->cptx_css)){
@@ -2148,15 +2177,18 @@ function cptx_pageInserts(){
       if(!empty($kw))
         $keywords.=(!empty($keywords)?",":"").$kw;
       $postid++;
+      if($post->cptx_IE8enabled){
+        $enableie8=true;
+      }
     }
-    rewind_posts();
-    if($post->cptx_IE8enabled){
+    if($enableie8){
       echo '<!--[if IE 8]>';
       echo '<script type="text/javascript">';
       @readfile(__DIR__."/js/cptxie8fix".(CPTX_DEBUG?'':'.min').".js");
       echo '</script>';
       echo '<![endif]-->';
     }
+    rewind_posts();
     if(is_single() && !empty($keywords))
       echo '<meta name="keywords" content="'.$keywords.'"/>';
   }
@@ -2224,5 +2256,4 @@ add_action('wp_ajax_nopriv_cptxCSS','cptx_postCSS');
 add_action('wp_ajax_cptxCSS','cptx_postCSS');
 add_action('wp_ajax_nopriv_cptxFont','cptx_postFont');
 add_action('wp_ajax_cptxFont','cptx_postFont');
-
 ?>

@@ -55,9 +55,9 @@ function cptx_postCSS(){
   $css=stripslashes($css);
   if($IE8enabled){
     add_filter("nonce_life", "cptx_setAssetsNonceLifeSpan");
-    $url=wp_nonce_url(
-      admin_url("admin-ajax.php")."?action=cptxFont&",
-      CPTX_WP_FONTNONCE_ACTION,CPTX_WP_ASSETSNONCE_VAR);
+    $url=html_entity_decode(wp_nonce_url(
+      admin_url("admin-ajax.php")."?action=cptxFont",
+      CPTX_WP_FONTNONCE_ACTION,CPTX_WP_ASSETSNONCE_VAR));
     remove_filter("nonce_life", "cptx_setAssetsNonceLifeSpan");
 
     $css=str_replace("wpcxX-e.eot?",$url.'&id='.$id.'&t=e#',$css);
