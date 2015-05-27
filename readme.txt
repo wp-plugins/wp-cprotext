@@ -41,7 +41,7 @@ To improve the SEO rank of your text web page, you are able to insert a
 placeholder text. This placeholder will be available to web crawlers such as search
 engines. It can either be an abstract of your content, the first lines
 of your text, or whatever keywords you would like to expose to
-to search engines so that your content is efficiently referenced. This
+search engines so that your content is efficiently referenced. This
 placeholder text is also used as a failover for older browsers failing to
 comply to basic web standards.
 
