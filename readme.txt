@@ -1,25 +1,24 @@
 === Plugin Name ===
 Contributors: askadice
 Donate link:
-Tags: copyright, text, protection, cprotext
+Tags: copyright, text, copy, paste, protection, cprotext
 Requires at least: 3.9.0
 Tested up to: 4.2.2
 Stable tag: trunk
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-CPROTEXT protects your texts from being hijacked using a process that
-nullifies in-browser copy/paste as well as HTML code parsing by web
-crawlers.
+CPROTEXT protects your texts from unauthorized and fraudulent copy. The protected texts are
+immune to in-browser copy/paste and HTML code parsing. Neither browser users nor
+web crawlers will be able to digitally duplicate your texts anymore.
 
 == Description ==
 
 CPROTEXT is an online service for copyright protection that you
-can experiment by visiting the example page of the [CPROTEXT
-website](https://www.cprotext.com "CPROTEXT: Copyright protection for
-online texts").
+can test via the example page of the [CPROTEXT website](https://www.cprotext.com
+"CPROTEXT: Copyright protection for online texts").
 
-WP-CPROTEXT offers the opportunity to protect your published texts
+WP-CPROTEXT protects your texts published on a WordPress based website
 from any kind of digital copy, being in-browser copy/paste or HTML code parsing
 by web crawlers. When you decide to protect and publish a text in
 WordPress, it is first submitted to the CPROTEXT online service to be
@@ -32,28 +31,26 @@ of the CPROTEXT online service__. You can then choose to enable or
 disable protection at will.
 
 As explained in the [CPROTEXT F.A.Q.](https://www.cprotext.com/en/faq.html), the
-protected text data returned by the CPROTEXT online service are only
-composed of standard HTML and CSS code, and do not require JavaScript code to
-be effective. Therefore, __contrary to other copy protection plugins, the
+protected text data returned by the CPROTEXT online service is only
+standard HTML and CSS code. No JavaScript code is required
+to make this protection effective. Therefore, __contrary to other copy protection plugins, the
 CPROTEXT protection is engraved in the web page and can not be removed__
 by disabling browser JavaScript support. Moreover, attempts to alter the protected text
 data would result in displaying a randomly modified text.
 
-To improve the SEO rank of your text web page, you are able to fill in a
+To improve the SEO rank of your text web page, you are able to insert a
 placeholder text. This placeholder will be available to web crawlers such as search
 engines. It can either be an abstract of your content, the first lines
-of your text, or whatever keywords you would like to make available
+of your text, or whatever keywords you would like to expose to
 to search engines so that your content is efficiently referenced. This
-placeholder text will also be displayed by browsers that are not able
-to display your protected text because of incomplete support of web
-standards. It can then be used to inform their users about the 
-purpose of your protected text.
+placeholder text is also used as a failover for older browsers failing to
+comply to basic web standards.
 
 The WP-CPROTEXT Settings page offers you several options:
 
-1. How to notify your readers about the protection applied to your text
-1. Which font to use to display your text ( cf. [CPROTEXT
+* font to use to display your text ( cf. [CPROTEXT
 F.A.Q.](https://www.cprotext.com/en/faq.html) )
+* reader notification about the text protection
 
 == Installation ==
 
