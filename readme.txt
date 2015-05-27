@@ -73,10 +73,11 @@ There are no F.A.Q. related to the plugin for now.
 
 == Changelog ==
 = 1.2.0 =
-add "no notification" and "stealth notification" options
-fix title only post updates
-fix issues with simple/double quotes and anti-slashes
-fix ie8 support related issues
+
+* add "no notification" and "stealth notification" options
+* fix title only post updates
+* fix issues with simple/double quotes and anti-slashes
+* fix ie8 support related issues
 
 = 1.1.0 =
 apply WordPress good practices for AJAX use
