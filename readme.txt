@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: askadice
 Donate link:
-Tags: copyright, text, copy, paste, protection, cprotext
+Tags: copyright, text, content protection, no right click, blog protection, copy protection, copy protect, copy, paste, protection, cprotext
 Requires at least: 3.9.0
 Tested up to: 4.2.2
 Stable tag: trunk
