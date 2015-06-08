@@ -73,13 +73,13 @@ to the CPROTEXT online service.
 
    Other available solutions give a false sense of protection since they can
    be easily bypassed. Moreover they usually are very intrusive by altering the
-   browser functionalities of the website visitors, such as use of the
+   browser functionalities of the website visitors, such as disabling the
    context menu (right click).
    With CPROTEXT, authors can protect their contents with a truely efficient
    solution without annoying their website visitors.
 
    The only valid reason against text obfuscation is the loss of accessibility.
-   That's why we strongly advice each CPROTEXT users to publish their protected text
+   That's why we strongly advise every CPROTEXT user to publish their protected text
    with an audio version such as in the CPROTEXT [example](https://www.cprotext.com/en/example.html) page.
 
 * Why is this limited to text ? What about images copy protection ?
@@ -89,8 +89,8 @@ to the CPROTEXT online service.
   displayed on a screen can be copied as simply as hitting a key of your
   keyboard, whatever the copy protections in place.
 
-  Therefore, really efficient images copy protection from website visitors using a
-  graphical browser is not possible.
+  Therefore, a truely efficient copy protection of images is not possible when
+  it aims at website visitors using a graphical browser.
 
   Protection from web crawlers is something else, and could be integrated in
   CPROTEXT. But, as of today, nobody expressed any interest for such a feature.
