@@ -75,7 +75,7 @@ to the CPROTEXT online service.
    be easily bypassed. Moreover they usually are very intrusive by altering the
    browser functionalities of the website visitors, such as disabling the
    context menu (right click).
-   With CPROTEXT, authors can protect their contents with a truely efficient
+   With CPROTEXT, authors can protect their contents with a truly efficient
    solution without annoying their website visitors.
 
    The only valid reason against text obfuscation is the loss of accessibility.
@@ -89,7 +89,7 @@ to the CPROTEXT online service.
   displayed on a screen can be copied as simply as hitting a key of your
   keyboard, whatever the copy protections in place.
 
-  Therefore, a truely efficient copy protection of images is not possible when
+  Therefore, a truly efficient copy protection of images is not possible when
   it aims at website visitors using a graphical browser.
 
   Protection from web crawlers is something else, and could be integrated in
