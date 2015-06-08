@@ -69,7 +69,7 @@ to the CPROTEXT online service.
    that they want to keep control over their contents.
 
    If content protection is not a priority, then don't use such protection.
-   But those who wish to do so should have the choice of a real solution.
+   But those who wish to protect their texts should have the choice of a real solution.
 
    Other available solutions give a false sense of protection since they can
    be easily bypassed. Moreover they usually are very intrusive by altering the
