@@ -63,7 +63,41 @@ F.A.Q.](https://www.cprotext.com/en/faq.html) )
 Check the [CPROTEXT website](https://www.cprotext.com) for the F.A.Q. related
 to the CPROTEXT online service.
 
-There are no F.A.Q. related to the plugin for now.
+*  Why are you doing this ? Text obfuscation is wrong !
+
+   While the nature of the web is to share information widely, some decide
+   that they want to keep control over their contents.
+
+   If content protection is not a priority, then don't use such protection.
+   But those who wish to do so should have the choice of a real solution.
+
+   Other available solutions give a false sense of protection since they can
+   be easily bypassed. Moreover they usually are very intrusive by altering the
+   browser functionalities of the website visitors, such as use of the
+   context menu (right click).
+   With CPROTEXT, authors can protect their contents with a truely efficient
+   solution without annoying their website visitors.
+
+   The only valid reason against text obfuscation is the loss of accessibility.
+   That's why we strongly advice each CPROTEXT users to publish their protected text
+   with an audio version such as in the CPROTEXT [example](https://www.cprotext.com/en/example.html) page.
+
+* Why is this limited to text ? What about images copy protection ?
+
+  Copying an image published on the web is as simple as making a screen capture.
+  Contrary to texts which would require additional OCR processing, a picture
+  displayed on a screen can be copied as simply as hitting a key of your
+  keyboard, whatever the copy protections in place.
+
+  Therefore, really efficient images copy protection from website visitors using a
+  graphical browser is not possible.
+
+  Protection from web crawlers is something else, and could be integrated in
+  CPROTEXT. But, as of today, nobody expressed any interest for such a feature.
+
+  The only advisable solutions are publishing low resolution of your work and/or
+  use watermarks.
+
 
 == Screenshots ==
 
